@@ -4,8 +4,6 @@ package 'android-sdk'
 
 execute 'update-sdk-system-tools-and-images' do
   command "echo y | android update sdk -a --no-ui"
-  puts "What does this do?"
-  puts user node['sprout']['user']
   user node['sprout']['user']
 end
 
