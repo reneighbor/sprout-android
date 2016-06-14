@@ -3,7 +3,7 @@ include_recipe 'homebrew'
 package 'android-sdk'
 
 execute 'update-sdk-system-tools-and-images' do
-  command "echo y | android update sdk -a --no-ui"
+  command 'echo y | android update sdk -a --no-ui'
   user node['sprout']['user']
 end
 
