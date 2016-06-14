@@ -12,7 +12,7 @@ filters = %w(
 )
 
 execute 'update-sdk-system-tools-and-platforms' do
-  command "echo y | android update sdk --no-ui --filter #{filters.join(',')}"
+  command "echo y | android update sdk -a --no-ui --filter #{filters.join(',')}"
 end
 
 atom_system_image_package_id = node['sprout']['android']['atom_system_image_package_id']
