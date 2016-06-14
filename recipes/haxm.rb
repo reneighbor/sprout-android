@@ -5,7 +5,7 @@ haxm_pkg      = node['sprout']['android']['haxm']['package_name']
 haxm_dmg_path = node['sprout']['android']['haxm']['dmg_path']
 
 execute 'update-haxm-pkg' do
-  command 'echo y | android update sdk --no-ui --filter extra-intel-Hardware_Accelerated_Execution_Manager'
+  command 'echo y | android update sdk -a --no-ui --filter extra-intel-Hardware_Accelerated_Execution_Manager'
   user node['sprout']['user']
 end
 
