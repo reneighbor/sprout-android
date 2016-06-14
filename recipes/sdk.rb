@@ -3,7 +3,7 @@ include_recipe 'homebrew'
 package 'android-sdk'
 
 execute 'change permissions of .android directory' do
-  command 'echo y | sudo chown -R travis .android'
+  command 'echo y | sudo chown -R travis ~/.android/'
 end
 
 filters = %w(
