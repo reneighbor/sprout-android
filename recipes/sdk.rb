@@ -2,18 +2,10 @@ include_recipe 'homebrew'
 
 package 'android-sdk'
 
-licenses = %w(
-	android-sdk-license-c81a61d9
-	android-googletv-license-345b386f
-	android-sdk-preview-license-d099d938
-	google-gdk-license-35dc2951
-	intel-android-extra-license-3626590a
-	mips-android-sysimage-license-acdab23e
-)
-
+licenses = "android-sdk-license-c81a61d9|android-googletv-license-345b386f|android-sdk-preview-license-d099d938|google-gdk-license-35dc2951|intel-android-extra-license-3626590a|mips-android-sysimage-license-acdab23e"
 
 execute 'update-sdk-system-tools-and-images' do
-  command 'echo y | android update sdk -a --no-ui --accept=#{licenses.join('|')}'
+  command 'echo y | android update sdk -a --no-ui --accept=#{licenses}'
   user node['sprout']['user']
 end
 
