@@ -2,6 +2,10 @@ include_recipe 'homebrew'
 
 package 'android-sdk'
 
+execute 'change permissions of .android directory' do
+  command 'echo y | sudo chown -R travis .android'
+end
+
 filters = %w(
   build-tools-19.0.3
   platform-tools
