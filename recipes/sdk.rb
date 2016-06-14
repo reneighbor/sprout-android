@@ -2,34 +2,22 @@ include_recipe 'homebrew'
 
 package 'android-sdk'
 
-licenses = [
-  'android-sdk-license-c81a61d9',
-  'android-googletv-license-345b386f',
-  'android-sdk-preview-license-d099d938',
-  'google-gdk-license-35dc295',
-  'intel-android-extra-license-3626590a',
-  'mips-android-sysimage-license-acdab23e'
-]
+filters = %w(
+  build-tools-19.0.3
+  platform-tools
+  android-19
+  addon-google_apis-google-19
+  extra-android-m2repository
+  extra-android-support
+)
 
-execute 'update-sdk-system-tools-and-images' do
-  command "echo y | android update sdk -a --no-ui --accept=#{licenses.join('|')}"
-  user node['sprout']['user']
+execute 'update-sdk-system-tools-and-platforms' do
+  command "echo y | android update sdk --no-ui --filter #{filters.join(',')}"
 end
 
-# filters = %w(
-#   platform-tools
-#   android-23
-#   addon-google_apis-google-19
-#   extra-android-m2repository
-# )
+atom_system_image_package_id = node['sprout']['android']['atom_system_image_package_id']
 
-# execute 'update-sdk-system-tools-and-platforms' do
-#   command "echo y | android update sdk --no-ui --filter #{filters.join(',')}"
-# end
-
-# atom_system_image_package_id = node['sprout']['android']['atom_system_image_package_id']
-
-# execute 'update-sdk-system-images' do
-#   command "echo y | android update sdk -a --no-ui --filter #{atom_system_image_package_id}"
-#   user node['sprout']['user']
-# end
+execute 'update-sdk-system-images' do
+  command "echo y | android update sdk -a --no-ui --filter #{atom_system_image_package_id}"
+  user node['sprout']['user']
+end
