@@ -2,10 +2,6 @@ include_recipe 'homebrew'
 
 package 'android-sdk'
 
-execute 'change permissions of .android directory' do
-  command 'echo y | sudo chown -R travis ~/.android/'
-end
-
 filters = %w(
   build-tools-19.0.3
   platform-tools
@@ -17,6 +13,10 @@ filters = %w(
 
 execute 'update-sdk-system-tools-and-platforms' do
   command "echo y | android update sdk -a --no-ui --filter #{filters.join(',')}"
+end
+
+execute 'change permissions of .android directory' do
+  command 'echo y | sudo chown -R travis ~/.android/'
 end
 
 atom_system_image_package_id = node['sprout']['android']['atom_system_image_package_id']
