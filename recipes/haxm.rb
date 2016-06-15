@@ -26,7 +26,7 @@ ruby_block 'link dmg into brew-installed android-sdk dir' do
 end
 
 dmg_package haxm_pkg do
-  source     'http://example.com/' # Hack to keep dmg_package happy. Will not download.
+  file       '/usr/local/opt/android-sdk/extras/intel/Hardware_Accelerated_Execution_Manager/IntelHAXM_6.0.1.dmg'
   owner      node['sprout']['user']
   type       'mpkg'
   package_id node['sprout']['android']['haxm']['package_id']
