@@ -21,7 +21,7 @@ ruby_block 'link dmg into brew-installed android-sdk dir' do
     cached_dmg_path = ::File.join(Chef::Config[:file_cache_path], "#{haxm_pkg}.dmg")
 
     require 'fileutils'
-    FileUtils.ln_s(cached_dmg_path, sdk_dmg_link) # Symlink to cache dir so dmg_package can load the file
+    FileUtils.ln_s(sdk_dmg_link, cached_dmg_path) # Symlink to cache dir so dmg_package can load the file
   end
 end
 
