@@ -1,3 +1,5 @@
 recipes:
-  - bash_it
-  - sdx
+  # specifically excluding haxm in when run i nCI due to 
+  # compatibility issues on VMs
+  - sprout-android::bash_it
+  - sprout-android::sdk
