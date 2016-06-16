@@ -1,2 +1,3 @@
 recipes:
-  - sprout-android
+  - bash_it
+  - sdx
