@@ -14,10 +14,3 @@ install:
   - rvm implode --force # We are testing installation of Rubies, so should uninstall everything
 script:
   - ./sprout exec rake ci
-
-after_failure:
-  - ls /usr/local/opt
-  - ls /usr/local/opt/android-sdk
-  - ls /usr/local/opt/android-sdk/extras
-  - ls /usr/local/opt/android-sdk/extras/intel
-  - ls /usr/local/opt/android-sdk/extras/intel/Hardware_Accelerated_Execution_Manager
